@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
+  MyApp();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Band Name Survey',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -16,49 +16,66 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MockBandInfo {
+  const MockBandInfo({this.name, this.votes});
+  final String name;
+  final int votes;
+}
+
+class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
+
+  static List<MockBandInfo> _bandList = [
+    const MockBandInfo(name: "Name 1", votes: 1),
+    const MockBandInfo(name: "Name 2", votes: 2),
+    const MockBandInfo(name: "Name 3", votes: 3),
+    const MockBandInfo(name: "Name 4", votes: 4),
+  ];
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  //_MyHomePageState createState() => _MyHomePageState();
+  Widget _buildListItem(BuildContext context, MockBandInfo bandInfo) {
+    return ListTile(
+      title: Row(
+        children: [
+          Expanded(
+            child: Text(
+              bandInfo.name,
+              style: Theme.of(context).textTheme.headline,
+            ),
+          ),
+        Container(
+          decoration: const BoxDecoration(
+            color: Color(0xffddddff),
+          ),
+          padding: const EdgeInsets.all(10.0),
+          child: Text(
+            bandInfo.votes.toString(),
+            style: Theme.of(context).textTheme.display1,
+            ),
+            ),
+          ],
+        ),
+        onTap: () {
+          print("Should increase votes here.");
+        },
+      );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemExtent: 80.0,
+        itemCount: _bandList.length,
+        itemBuilder: (context, index) =>
+          _buildListItem(context, _bandList[index]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
