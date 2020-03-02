@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1084391049969-26nl8anjdimu25d91oe4v7l1etat1ufn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1084391049969-26nl8anjdimu25d91oe4v7l1etat1ufn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQ8kqwfKY1T72E-QmY2XaCAzMopLnvtcw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1084391049969</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ai.marmalade.firebase.flutterfirestore</string>
+	<key>PROJECT_ID</key>
+	<string>bandnamesurvey-c470c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bandnamesurvey-c470c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1084391049969:ios:c28026a9c7bfc7f0b47750</string>
+	<key>DATABASE_URL</key>
+	<string>https://bandnamesurvey-c470c.firebaseio.com</string>
+</dict>
+</plist>

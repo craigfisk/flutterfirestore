@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1084391049969",
+    "firebase_url": "https://bandnamesurvey-c470c.firebaseio.com",
+    "project_id": "bandnamesurvey-c470c",
+    "storage_bucket": "bandnamesurvey-c470c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084391049969:android:2a85e768085721fdb47750",
+        "android_client_info": {
+          "package_name": "ai.marmalade.firebase.flutterfirestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084391049969-5tlqh41nr7s50nqspp8ael3abrsnr0ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI1B2lOET82nRFMVoU1uXubaKsmJp6lRY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084391049969-5tlqh41nr7s50nqspp8ael3abrsnr0ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
