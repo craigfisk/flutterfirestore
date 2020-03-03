@@ -63,7 +63,10 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
         onTap: () {
-          print("Should increase votes here.");
+          //print("Should increase votes here.");
+          document.reference.updateData({
+            'votes': document['votes'] + 1
+          });
         },
       );
   }
