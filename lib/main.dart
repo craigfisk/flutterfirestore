@@ -64,8 +64,15 @@ class MyHomePage extends StatelessWidget {
         ),
         onTap: () {
           //print("Should increase votes here.");
-          document.reference.updateData({
-            'votes': document['votes'] + 1
+//          document.reference.updateData({
+//            'votes': document['votes'] + 1
+//          });
+            Firestore.instance.runTransaction((transaction) async {
+            DocumentSnapshot freshSnap =
+                await transaction.get(document.reference);
+            await transaction.update(freshSnap.reference, {
+              'votes': freshSnap['votes'] + 1,
+            });
           });
         },
       );
