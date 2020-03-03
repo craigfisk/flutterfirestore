@@ -1,7 +1,6 @@
 # bandnamesurvey
 
-A new Flutter project.
-
+Working through Andrew Brogdon's video on ["Using Firestore as a backend to your Flutter app"](https://www.youtube.com/watch?v=DqJ_KjFzL9I&list=PLOU2XLYxmsIJ7dsVN4iRuA7BT8XHzGtCr&index=9) using current Flutter (channel beta v1.14.6) and Dart (2.8.0-dev.5.0.flutter-fc3af737c7) on Ubuntu 18.04
 ## Getting Started
 
 This project is a starting point for a Flutter application.
