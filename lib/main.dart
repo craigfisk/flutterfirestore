@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,8 +15,8 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
-}
-
+}  // remove??
+/*
 class MockBandInfo {
   const MockBandInfo({this.name, this.votes});
   final String name;
@@ -31,19 +32,22 @@ class MyHomePage extends StatelessWidget {
     const MockBandInfo(name: "Name 3", votes: 3),
     const MockBandInfo(name: "Name 4", votes: 4),
   ];
+*/
+class MyHomePage extends StatelessWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
-  @override
+  //@override
   //_MyHomePageState createState() => _MyHomePageState();
-  Widget _buildListItem(BuildContext context, MockBandInfo bandInfo) {
+  Widget _buildListItem(BuildContext context, DocumentSnapshot document) { //}MockBandInfo bandInfo) {
     return ListTile(
       title: Row(
         children: [
           Expanded(
             child: Text(
-              bandInfo.name,
-              style: Theme.of(context).textTheme.headline,
+              document['name'], //bandInfo.name,
+              style: Theme.of(context).textTheme.headline5, // headline,
             ),
           ),
         Container(
@@ -52,8 +56,8 @@ class MyHomePage extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(10.0),
           child: Text(
-            bandInfo.votes.toString(),
-            style: Theme.of(context).textTheme.display1,
+            document['votes'].toString(),
+            style: Theme.of(context).textTheme.headline4, //display1,
             ),
             ),
           ],
@@ -70,12 +74,17 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ListView.builder(
-        itemExtent: 80.0,
-        itemCount: _bandList.length,
-        itemBuilder: (context, index) =>
-          _buildListItem(context, _bandList[index]),
-      ),
+      body: StreamBuilder(
+        stream: Firestore.instance.collection('bandname').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return Text('Loading...');
+          return ListView.builder(
+            itemExtent: 80.0,
+            itemCount: snapshot.data.documents.length, //_bandList.length,
+            itemBuilder: (context, index) =>
+              _buildListItem(context, snapshot.data.documents[index]), //_bandList[index]),
+          );
+        }),
     );
   }
 }
